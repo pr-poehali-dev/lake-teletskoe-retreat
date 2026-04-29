@@ -7,13 +7,150 @@ const HERO_IMAGES = [
   "https://cdn.poehali.dev/projects/57811b6b-1488-4a1d-9096-b19e0c95f400/files/7cbb5b0d-ee1a-4e38-9193-3a7183ce993e.jpg",
 ];
 
+const TOURS = [
+  {
+    id: 1,
+    name: "Телецкое озеро",
+    subtitle: "Место силы",
+    dates: "19–22 июня",
+    duration: "4 дня",
+    emoji: "🏔️",
+    badge: "Место силы",
+    badgeColor: "bg-forest-100 text-forest-700",
+    description:
+      "Одно из величайших озёр России — «Алтайское море», внесённое в список ЮНЕСКО. Кристально чистая вода глубиной 325 метров, водопад Корбу, исчезающий источник. Место, где время останавливается и открывается что-то важное внутри.",
+    includes: [
+      "🛥️ Прогулка на корабле по озеру",
+      "💧 Водопад Корбу",
+      "🌿 Исчезающий источник",
+      "🏡 Домики на берегу",
+      "🍽️ 3-разовое питание",
+      "🧘 Авторские медитации",
+    ],
+    prices: { group: "от 40 000 ₽", individual: "от 36 000 ₽", reboot: "от 50 000 ₽" },
+    note: "Трансфер из Горно-Алтайска включён",
+  },
+  {
+    id: 2,
+    name: "Остров Патмос",
+    subtitle: "Тишина и благодать",
+    dates: "12–14 июня",
+    duration: "3 дня",
+    emoji: "⛪",
+    badge: "Духовный",
+    badgeColor: "bg-sage-100 text-sage-600",
+    description:
+      "Маленький скалистый остров на реке Катунь с древним православным храмом Иоанна Богослова. Добраться можно только по подвесному мосту — захватывает дух. Место удивительного покоя и внутренней тишины среди бурных горных вод.",
+    includes: [
+      "🚌 Трансфер из Горно-Алтайска до Чемала",
+      "⛪ Экскурсия на остров Патмос",
+      "🏡 Проживание в Чемале",
+      "🍽️ Питание включено",
+      "🌊 Прогулки по берегу Катуни",
+      "🌄 Живописные смотровые точки",
+    ],
+    prices: { group: "от 40 000 ₽", individual: "от 30 000 ₽", reboot: "от 50 000 ₽" },
+    note: "Трансфер из Горно-Алтайска включён",
+  },
+  {
+    id: 3,
+    name: "Озеро Ая",
+    subtitle: "Тусовка и приключения",
+    dates: "26–28 июня",
+    duration: "3 дня",
+    emoji: "🎉",
+    badge: "Для молодёжи",
+    badgeColor: "bg-amber-50 text-amber-700",
+    description:
+      "Самое тусовочное место Алтая! Тёплое бирюзовое озеро, клубная жизнь, бассейн Ривьера, джип-туры по горным дорогам. Здесь весело в любую погоду. Идеально для молодых и активных, кто хочет совместить алтайскую природу с живой компанией.",
+    includes: [
+      "🏊 Бассейн «Ривьера» включён",
+      "🚙 Джип-тур по горным дорогам",
+      "🎶 Клубы и вечерние тусовки",
+      "🏡 Домики на берегу Аи",
+      "🍽️ Питание включено",
+      "🤿 Купание и водные активности",
+    ],
+    prices: { group: "от 50 000 ₽", individual: "от 30 000 ₽", reboot: null },
+    note: "Возраст 18+. Дети не предусмотрены",
+  },
+  {
+    id: 4,
+    name: "Денисова пещера",
+    subtitle: "Семейный отдых",
+    dates: "23–26 июля",
+    duration: "4 дня",
+    emoji: "🦴",
+    badge: "Для семей",
+    badgeColor: "bg-forest-100 text-forest-600",
+    description:
+      "Без пафоса, зато с душой. Денисова пещера — место, где нашли следы древних людей, живших здесь 50 000 лет назад. Не модный курорт, а настоящий спокойный отдых. Чистый воздух, степные пейзажи, не торопливые прогулки. Отлично подходит для семей с детьми от 8 лет.",
+    includes: [
+      "🦴 Экскурсия в Денисову пещеру",
+      "🌾 Прогулки по Алтайской степи",
+      "🏡 Уютное проживание",
+      "🍽️ Питание включено",
+      "👨‍👩‍👧 Программа для детей от 8 лет",
+      "🌅 Размеренный, восстанавливающий ритм",
+    ],
+    prices: { group: "по запросу", individual: "по запросу", reboot: null },
+    note: "Идеально для семей с детьми",
+  },
+  {
+    id: 5,
+    name: "Патмос + Ая",
+    subtitle: "Комбо-тур",
+    dates: "15–19 июля",
+    duration: "5 дней",
+    emoji: "🌀",
+    badge: "Хит сезона",
+    badgeColor: "bg-amber-100 text-amber-700",
+    description:
+      "Лучшее из двух миров — сначала тишина острова Патмос и духовное наполнение, потом живая тусовка на озере Ая с джипами и Ривьерой. Уникальный баланс: перезагрузка + веселье. Один тур — два совершенно разных настроения.",
+    includes: [
+      "⛪ Остров Патмос с экскурсией",
+      "🎉 Озеро Ая — тусовка и приключения",
+      "🚙 Джип-тур",
+      "🏊 Бассейн Ривьера",
+      "🍽️ Питание все дни",
+      "🚌 Трансфер между точками",
+    ],
+    prices: { group: "от 60 000 ₽", individual: null, reboot: null },
+    note: "Всё включено, двойное удовольствие",
+  },
+  {
+    id: 6,
+    name: "ВИП тур на Чемал",
+    subtitle: "Роскошь на природе",
+    dates: "По договорённости",
+    duration: "Индивидуально",
+    emoji: "👑",
+    badge: "ВИП",
+    badgeColor: "bg-amber-200 text-amber-900",
+    description:
+      "Эксклюзивный тур для тех, кто привык к лучшему. Ресторанное питание на открытом воздухе (кейтеринг), номера люкс, полное сопровождение на протяжении всего путешествия. Джип-тур, конные прогулки, массаж, авторские экскурсии. По запросу — концерт горлового пения.",
+    includes: [
+      "👑 Номера Люкс",
+      "🍽️ Ресторанное кейтеринг-питание на природе",
+      "🚙 Джип-тур по лучшим маршрутам",
+      "🐴 Конные прогулки",
+      "💆 Массаж включён",
+      "🎵 Концерт горлового пения (по запросу)",
+      "🧭 Полное сопровождение гостей",
+      "🗺️ Авторские экскурсии",
+    ],
+    prices: { group: null, individual: "от 350 000 ₽/чел", reboot: null },
+    note: "Даты и программа — полностью под вас",
+  },
+];
+
 function useInView() {
   const ref = useRef<HTMLDivElement>(null);
   const [inView, setInView] = useState(false);
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => { if (entry.isIntersecting) setInView(true); },
-      { threshold: 0.15 }
+      { threshold: 0.1 }
     );
     if (ref.current) observer.observe(ref.current);
     return () => observer.disconnect();
@@ -37,6 +174,7 @@ const Index = () => {
   const [currentPhoto, setCurrentPhoto] = useState(0);
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeProgram, setActiveProgram] = useState<"group" | "individual" | "reboot">("group");
+  const [activeTour, setActiveTour] = useState<number | null>(null);
   const [formData, setFormData] = useState({ name: "", phone: "", program: "Групповой тур" });
   const [submitted, setSubmitted] = useState(false);
 
@@ -53,9 +191,8 @@ const Index = () => {
   };
 
   const navLinks = [
-    { href: "#about", label: "О месте" },
-    { href: "#programs", label: "Программы" },
     { href: "#tours", label: "Туры" },
+    { href: "#programs", label: "Программы" },
     { href: "#gallery", label: "Галерея" },
     { href: "#reviews", label: "Отзывы" },
     { href: "#contact", label: "Контакты" },
@@ -69,7 +206,7 @@ const Index = () => {
         <div className="glass-card border-b border-forest-200/40 px-6 py-4">
           <div className="max-w-6xl mx-auto flex items-center justify-between">
             <a href="#" className="font-display text-2xl text-forest-800 italic tracking-wide">
-              Телецкое озеро
+              Туры на Алтай
             </a>
             <div className="hidden md:flex items-center gap-8">
               {navLinks.map((link) => (
@@ -132,7 +269,7 @@ const Index = () => {
           >
             <img
               src={img}
-              alt="Телецкое озеро"
+              alt="Алтай"
               className="w-full h-full object-cover"
               style={{
                 transform: i === currentPhoto ? "scale(1)" : "scale(1.05)",
@@ -145,20 +282,23 @@ const Index = () => {
 
         <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6">
           <p className="text-sage-200 text-sm tracking-[0.4em] uppercase mb-4 font-golos animate-fade-in">
-            Алтай · Телецкое озеро
+            Алтай · 2025
           </p>
           <h1 className="font-display text-white text-shadow text-5xl md:text-7xl lg:text-8xl font-light italic leading-none mb-3 animate-fade-up" style={{ animationDelay: "0.3s", opacity: 0 }}>
-            Место силы
+            Туры на Алтай
           </h1>
-          <p className="font-display text-sage-100 text-shadow-sm text-xl md:text-3xl font-light italic mb-10 animate-fade-up" style={{ animationDelay: "0.6s", opacity: 0 }}>
-            Отдых на Телецком озере
+          <p className="font-display text-sage-100 text-shadow-sm text-xl md:text-3xl font-light italic mb-6 animate-fade-up" style={{ animationDelay: "0.6s", opacity: 0 }}>
+            Групповые · Индивидуальные · Перезагрузка
+          </p>
+          <p className="text-white/80 text-sm mb-10 animate-fade-up" style={{ animationDelay: "0.75s", opacity: 0 }}>
+            Количество мест ограничено на каждый тур
           </p>
           <a
-            href="#about"
+            href="#tours"
             className="animate-fade-up inline-flex items-center gap-2 bg-white/15 backdrop-blur-sm border border-white/40 text-white px-8 py-3 rounded-full hover:bg-white/25 transition-all duration-300 text-sm tracking-wide"
             style={{ animationDelay: "0.9s", opacity: 0 }}
           >
-            Узнать подробнее
+            Выбрать тур
             <Icon name="ChevronDown" size={16} />
           </a>
         </div>
@@ -176,126 +316,119 @@ const Index = () => {
         </div>
       </section>
 
-      {/* ABOUT */}
-      <section id="about" className="py-24 px-6 bg-white/60">
-        <div className="max-w-5xl mx-auto">
-          <AnimatedSection>
-            <p className="text-center text-sage-500 text-xs tracking-[0.4em] uppercase mb-4">О месте</p>
-            <h2 className="font-display text-4xl md:text-6xl text-forest-800 text-center italic font-light mb-16">
-              Там, где рождается тишина
+      {/* TOURS */}
+      <section id="tours" className="py-24 px-6 bg-white/60">
+        <div className="max-w-6xl mx-auto">
+          <AnimatedSection className="text-center mb-16">
+            <p className="text-sage-500 text-xs tracking-[0.4em] uppercase mb-4">Направления 2025</p>
+            <h2 className="font-display text-4xl md:text-6xl text-forest-800 italic font-light mb-4">
+              Выберите свой Алтай
             </h2>
+            <p className="text-sage-600 text-sm max-w-xl mx-auto">
+              По индивидуальному запросу увезём в любую точку Алтая
+            </p>
           </AnimatedSection>
 
-          <div className="grid md:grid-cols-2 gap-16 items-center mb-16">
-            <AnimatedSection>
-              <div className="space-y-5 text-forest-700 leading-relaxed text-[1.05rem]">
-                <p>
-                  Телецкое озеро — одно из крупнейших и глубочайших озёр России. Его называют «Алтайским морем»
-                  и «младшим братом Байкала». Глубина достигает 325 метров, вода кристально чистая.
-                </p>
-                <p>
-                  Алтайцы издревле почитали это место священным. По легенде, богатырь Телес, не найдя
-                  достойного применения золоту, бросил его в озеро — с тех пор оно хранит особую силу.
-                  Здесь время замедляется, мысли проясняются, а тело наполняется живой энергией.
-                </p>
-                <p>
-                  Включено в список объектов Всемирного наследия ЮНЕСКО как часть «Золотых гор Алтая».
-                </p>
-              </div>
-            </AnimatedSection>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {TOURS.map((tour, idx) => (
+              <AnimatedSection key={tour.id}>
+                <div
+                  className={`nature-card rounded-3xl overflow-hidden cursor-pointer transition-all duration-300 hover:shadow-lg hover:-translate-y-1 flex flex-col h-full ${
+                    activeTour === tour.id ? "ring-2 ring-forest-400" : ""
+                  }`}
+                  onClick={() => setActiveTour(activeTour === tour.id ? null : tour.id)}
+                >
+                  <div className="p-6 flex flex-col flex-1">
+                    <div className="flex items-start justify-between mb-3">
+                      <span className="text-4xl">{tour.emoji}</span>
+                      <span className={`text-xs px-3 py-1 rounded-full font-medium ${tour.badgeColor}`}>
+                        {tour.badge}
+                      </span>
+                    </div>
 
-            <AnimatedSection className="grid grid-cols-2 gap-4">
-              {[
-                { icon: "Waves", label: "Глубина", value: "325 м" },
-                { icon: "Thermometer", label: "Чистота воды", value: "10/10" },
-                { icon: "Mountain", label: "Высота над уровнем моря", value: "436 м" },
-                { icon: "Globe", label: "Наследие ЮНЕСКО", value: "с 1998" },
-              ].map((stat) => (
-                <div key={stat.label} className="nature-card rounded-2xl p-6 text-center">
-                  <Icon name={stat.icon} size={28} className="text-forest-500 mx-auto mb-2" />
-                  <div className="font-display text-2xl text-forest-800 italic">{stat.value}</div>
-                  <div className="text-xs text-sage-600 mt-1 tracking-wide">{stat.label}</div>
+                    <h3 className="font-display text-2xl text-forest-800 italic mb-1">{tour.name}</h3>
+                    <p className="text-sage-500 text-sm mb-3">{tour.subtitle}</p>
+
+                    <div className="flex items-center gap-4 mb-4 text-xs text-sage-500">
+                      <span className="flex items-center gap-1">
+                        <Icon name="Calendar" size={12} />
+                        {tour.dates}
+                      </span>
+                      <span className="flex items-center gap-1">
+                        <Icon name="Clock" size={12} />
+                        {tour.duration}
+                      </span>
+                    </div>
+
+                    <p className="text-forest-600 text-sm leading-relaxed mb-4 flex-1">
+                      {tour.description}
+                    </p>
+
+                    {activeTour === tour.id && (
+                      <div className="border-t border-forest-100 pt-4 mt-2">
+                        <p className="text-xs text-sage-500 uppercase tracking-wider mb-3">Включено в тур:</p>
+                        <div className="grid grid-cols-1 gap-1.5 mb-4">
+                          {tour.includes.map((item) => (
+                            <span key={item} className="text-sm text-forest-700">{item}</span>
+                          ))}
+                        </div>
+                        {tour.note && (
+                          <div className="bg-sage-100/60 rounded-xl p-3 text-xs text-forest-600 mb-4">
+                            ℹ️ {tour.note}
+                          </div>
+                        )}
+                      </div>
+                    )}
+
+                    <div className="border-t border-forest-100 pt-4 mt-2">
+                      <div className="flex flex-col gap-1 mb-4">
+                        {tour.prices.group && (
+                          <div className="flex justify-between text-sm">
+                            <span className="text-sage-500">Групповой</span>
+                            <span className="text-forest-800 font-medium">{tour.prices.group}</span>
+                          </div>
+                        )}
+                        {tour.prices.individual && (
+                          <div className="flex justify-between text-sm">
+                            <span className="text-sage-500">Индивидуальный</span>
+                            <span className="text-forest-800 font-medium">{tour.prices.individual}</span>
+                          </div>
+                        )}
+                        {tour.prices.reboot && (
+                          <div className="flex justify-between text-sm">
+                            <span className="text-sage-500">Перезагрузка</span>
+                            <span className="text-forest-800 font-medium">{tour.prices.reboot}</span>
+                          </div>
+                        )}
+                      </div>
+                      <div className="flex items-center justify-between">
+                        <button
+                          onClick={(e) => { e.stopPropagation(); setActiveTour(activeTour === tour.id ? null : tour.id); }}
+                          className="text-xs text-forest-500 hover:text-forest-700 transition-colors flex items-center gap-1"
+                        >
+                          {activeTour === tour.id ? "Свернуть" : "Подробнее"}
+                          <Icon name={activeTour === tour.id ? "ChevronUp" : "ChevronDown"} size={12} />
+                        </button>
+                        <a
+                          href="#contact"
+                          onClick={(e) => e.stopPropagation()}
+                          className="bg-forest-600 text-white px-5 py-2 rounded-full text-xs hover:bg-forest-500 transition-colors"
+                        >
+                          Забронировать
+                        </a>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-              ))}
-            </AnimatedSection>
+              </AnimatedSection>
+            ))}
           </div>
 
-          <AnimatedSection className="grid md:grid-cols-3 gap-6">
-            {[
-              { icon: "Leaf", title: "Чистый воздух", text: "Нетронутая тайга вокруг озера. Воздух насыщен фитонцидами и кислородом" },
-              { icon: "Zap", title: "Энергетика места", text: "Место силы, где тысячелетия накапливалась природная энергия. Ощущается с первых минут" },
-              { icon: "Heart", title: "Исцеление", text: "Чистая вода, горный воздух, тишина и практики — мощная перезагрузка для тела и духа" },
-            ].map((item) => (
-              <div key={item.title} className="glass-card rounded-2xl p-6">
-                <div className="w-10 h-10 bg-forest-100 rounded-full flex items-center justify-center mb-4">
-                  <Icon name={item.icon} size={20} className="text-forest-600" />
-                </div>
-                <h3 className="font-display text-xl text-forest-800 italic mb-2">{item.title}</h3>
-                <p className="text-sage-600 text-sm leading-relaxed">{item.text}</p>
-              </div>
-            ))}
-          </AnimatedSection>
-        </div>
-      </section>
-
-      {/* NEAREST TOUR */}
-      <section id="tours" className="py-20 px-6 bg-gradient-to-br from-forest-700 to-forest-900 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <img src={HERO_IMAGES[0]} alt="" className="w-full h-full object-cover" />
-        </div>
-        <div className="max-w-4xl mx-auto relative z-10">
-          <AnimatedSection className="text-center mb-10">
-            <p className="text-sage-300 text-xs tracking-[0.4em] uppercase mb-4">Ближайший тур</p>
-            <h2 className="font-display text-4xl md:text-5xl text-white italic font-light mb-3">
-              19–22 июня 2025
-            </h2>
-            <p className="text-sage-200 text-lg">Групповой тур · до 20 человек</p>
-          </AnimatedSection>
-
           <AnimatedSection>
-            <div className="glass-card rounded-3xl p-8 md:p-10">
-              <div className="grid md:grid-cols-3 gap-6 mb-8 pb-8 border-b border-forest-200/30">
-                {[
-                  { icon: "Calendar", label: "Продолжительность", value: "3 суток" },
-                  { icon: "Users", label: "Размер группы", value: "до 20 чел." },
-                  { icon: "MapPin", label: "Отправление", value: "г. Бийск" },
-                ].map((item) => (
-                  <div key={item.label} className="text-center">
-                    <Icon name={item.icon} size={24} className="text-forest-500 mx-auto mb-2" />
-                    <div className="font-display text-2xl text-forest-800 italic">{item.value}</div>
-                    <div className="text-xs text-sage-500 mt-1">{item.label}</div>
-                  </div>
-                ))}
-              </div>
-              <div className="flex flex-wrap gap-2 justify-center mb-8">
-                {[
-                  "🛥️ Прогулка на корабле",
-                  "💧 Водопад Корбу",
-                  "🌿 Исчезающий источник",
-                  "🏡 Уютные домики",
-                  "🍽️ 3-разовое питание",
-                  "🧘 Авторские медитации",
-                  "🏃 Фитнес-занятия",
-                  "🔥 Посиделки у костра",
-                  "👨‍👩‍👧 Можно с детьми от 8 лет",
-                ].map((tag) => (
-                  <span key={tag} className="bg-forest-100/80 text-forest-700 px-4 py-1.5 rounded-full text-sm">
-                    {tag}
-                  </span>
-                ))}
-              </div>
-              <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-                <div>
-                  <div className="font-display text-4xl text-forest-800 italic">от 36 000 ₽</div>
-                  <div className="text-sage-500 text-sm mt-1">за человека · трансфер из Бийска включён</div>
-                </div>
-                <a
-                  href="#contact"
-                  className="bg-forest-600 text-white px-8 py-3 rounded-full hover:bg-forest-500 transition-colors duration-200 text-sm tracking-wide whitespace-nowrap"
-                >
-                  Забронировать место
-                </a>
-              </div>
+            <div className="mt-10 glass-card rounded-3xl p-6 text-center">
+              <p className="text-forest-700 text-sm">
+                🌍 Хотите в другое место Алтая? <strong>Мы организуем индивидуальный маршрут в любую точку</strong> — напишите нам!
+              </p>
             </div>
           </AnimatedSection>
         </div>
@@ -342,20 +475,18 @@ const Index = () => {
                       </div>
                       <div>
                         <h3 className="font-display text-2xl text-forest-800 italic">Групповой тур</h3>
-                        <p className="text-sage-500 text-sm">до 20 человек · 3 суток</p>
+                        <p className="text-sage-500 text-sm">до 20 человек · от 3 суток</p>
                       </div>
                     </div>
                     <div className="grid sm:grid-cols-2 gap-2">
                       {[
                         "Проживание в комфортабельных домиках",
                         "3-разовое питание",
-                        "Прогулка на корабле по озеру",
-                        "Экскурсия на водопад Корбу",
-                        "Исчезающий источник",
-                        "Стрейчинг, Пилатес, ЛФК, кардио",
+                        "Экскурсии по выбранному маршруту",
                         "Авторские медитации с природой",
+                        "Стрейчинг, Пилатес, ЛФК, кардио",
                         "Вечерние посиделки у костра",
-                        "Комфортный трансфер из Бийска",
+                        "Комфортный трансфер",
                         "Можно с детьми от 8 лет",
                       ].map((item) => (
                         <div key={item} className="flex items-start gap-2">
@@ -367,9 +498,9 @@ const Index = () => {
                   </div>
                   <div className="md:w-52 flex flex-col gap-4">
                     <div className="nature-card rounded-2xl p-6 text-center">
-                      <div className="font-display text-3xl text-forest-800 italic">36 000 ₽</div>
+                      <div className="font-display text-3xl text-forest-800 italic">от 40 000 ₽</div>
                       <div className="text-sage-500 text-xs mt-1">за человека</div>
-                      <div className="text-sage-400 text-xs mt-2 leading-relaxed">Билеты до Бийска оплачиваются отдельно</div>
+                      <div className="text-sage-400 text-xs mt-2 leading-relaxed">Билеты до точки отправления — отдельно</div>
                     </div>
                     <a href="#contact" className="block bg-forest-600 text-white text-center px-6 py-3 rounded-2xl hover:bg-forest-500 transition-colors text-sm">
                       Записаться
@@ -389,7 +520,7 @@ const Index = () => {
                       </div>
                       <div>
                         <h3 className="font-display text-2xl text-forest-800 italic">Индивидуальный тур</h3>
-                        <p className="text-sage-500 text-sm">1–3 человека или семья (3–5 чел)</p>
+                        <p className="text-sage-500 text-sm">1–3 человека или семья</p>
                       </div>
                     </div>
                     <div className="space-y-2.5 mb-6">
@@ -399,6 +530,7 @@ const Index = () => {
                         "От 3 суток — длительность по желанию",
                         "Гибкий график и маршрут",
                         "Идеально для семей с детьми",
+                        "Любая точка Алтая",
                       ].map((item) => (
                         <div key={item} className="flex items-start gap-2">
                           <Icon name="Check" size={15} className="text-forest-500 mt-0.5 shrink-0" />
@@ -416,7 +548,7 @@ const Index = () => {
                       <div className="text-sage-500 text-xs mt-1">за человека</div>
                     </div>
                     <a href="#contact" className="block bg-forest-600 text-white text-center px-6 py-3 rounded-2xl hover:bg-forest-500 transition-colors text-sm">
-                      Обсудить программу
+                      Записаться
                     </a>
                   </div>
                 </div>
@@ -487,7 +619,7 @@ const Index = () => {
               <div className="col-span-2 rounded-3xl overflow-hidden h-64 md:h-80">
                 <img
                   src={HERO_IMAGES[0]}
-                  alt="Телецкое озеро"
+                  alt="Алтай"
                   className="w-full h-full object-cover hover:scale-105 transition-transform duration-700 cursor-pointer"
                 />
               </div>
@@ -495,14 +627,14 @@ const Index = () => {
                 <div className="rounded-3xl overflow-hidden flex-1">
                   <img
                     src={HERO_IMAGES[1]}
-                    alt="Водопад Корбу"
+                    alt="Алтай"
                     className="w-full h-full object-cover hover:scale-105 transition-transform duration-700 cursor-pointer"
                   />
                 </div>
                 <div className="rounded-3xl overflow-hidden flex-1">
                   <img
                     src={HERO_IMAGES[2]}
-                    alt="Домики в лесу"
+                    alt="Алтай"
                     className="w-full h-full object-cover hover:scale-105 transition-transform duration-700 cursor-pointer"
                   />
                 </div>
@@ -530,19 +662,19 @@ const Index = () => {
               {[
                 {
                   name: "Светлана, 38 лет",
-                  text: "Ехала со скептицизмом — вернулась с ощущением, что побывала в другом мире. Озеро просто невероятное. Медитации у воды, водопад, костёр вечером... Именно то, что нужно было душе.",
+                  text: "Ехала со скептицизмом — вернулась с ощущением, что побывала в другом мире. Медитации у воды, горы, костёр вечером... Именно то, что нужно было душе.",
                   stars: 5,
-                  tour: "Групповой тур",
+                  tour: "Групповой тур · Телецкое озеро",
                 },
                 {
                   name: "Михаил и семья",
-                  text: "Взяли индивидуальную программу с детьми. Дети в восторге — рыбалка, корабль, купание. Мы с женой наконец-то отдохнули по-настоящему. Очень душевная атмосфера.",
+                  text: "Взяли индивидуальную программу с детьми. Дети в восторге — рыбалка, горные прогулки, купание. Мы с женой наконец-то отдохнули по-настоящему.",
                   stars: 5,
-                  tour: "Индивидуальный",
+                  tour: "Индивидуальный тур",
                 },
                 {
                   name: "Ирина, 45 лет",
-                  text: "Выбрала «Перезагрузку» после сложного года. Массаж, ЛФК, прогулки в тишине, чистый воздух и вкусная еда. Уехала заряженной на год вперёд. Уже планирую снова!",
+                  text: "Выбрала «Перезагрузку» после сложного года. Массаж, ЛФК, прогулки в тишине, чистый воздух и вкусная еда. Уехала заряженной на год вперёд!",
                   stars: 5,
                   tour: "Перезагрузка",
                 },
@@ -610,15 +742,19 @@ const Index = () => {
                   />
                 </div>
                 <div>
-                  <label className="block text-forest-700 text-sm mb-2">Интересующая программа</label>
+                  <label className="block text-forest-700 text-sm mb-2">Интересующий тур</label>
                   <select
                     value={formData.program}
                     onChange={(e) => setFormData({ ...formData, program: e.target.value })}
                     className="w-full bg-white/70 border border-forest-200 rounded-xl px-4 py-3 text-forest-800 focus:outline-none focus:ring-2 focus:ring-forest-400 focus:border-transparent transition"
                   >
-                    <option>Групповой тур</option>
-                    <option>Индивидуальный тур</option>
-                    <option>Перезагрузка</option>
+                    <option>Телецкое озеро (19–22 июня)</option>
+                    <option>Остров Патмос (12–14 июня)</option>
+                    <option>Озеро Ая (26–28 июня)</option>
+                    <option>Денисова пещера (23–26 июля)</option>
+                    <option>Патмос + Ая (15–19 июля)</option>
+                    <option>ВИП тур на Чемал</option>
+                    <option>Индивидуальный маршрут</option>
                     <option>Не определился, хочу узнать подробнее</option>
                   </select>
                 </div>
@@ -657,8 +793,8 @@ const Index = () => {
       {/* FOOTER */}
       <footer className="bg-forest-900 text-sage-300 py-10 px-6 text-center">
         <div className="max-w-4xl mx-auto">
-          <div className="font-display text-2xl text-white italic mb-2">Телецкое озеро</div>
-          <p className="text-sm mb-6 text-sage-500">Место силы в сердце Алтая</p>
+          <div className="font-display text-2xl text-white italic mb-2">Туры на Алтай</div>
+          <p className="text-sm mb-6 text-sage-500">Групповые · Индивидуальные · Перезагрузка</p>
           <div className="flex flex-wrap gap-6 justify-center text-xs text-sage-600 mb-6">
             {navLinks.map((link) => (
               <a key={link.href} href={link.href} className="hover:text-sage-300 transition-colors">
@@ -667,7 +803,7 @@ const Index = () => {
             ))}
           </div>
           <div className="h-px bg-gradient-to-r from-transparent via-forest-600 to-transparent mb-6" />
-          <p className="text-xs text-sage-700">© 2025 · Все права защищены</p>
+          <p className="text-xs text-sage-700">© 2025 · Все права защищены · Количество мест ограничено</p>
         </div>
       </footer>
     </div>
