@@ -12,6 +12,7 @@ const HERO_IMAGES = [
 const TOURS = [
   {
     id: 1,
+    slug: null,
     name: "Телецкое озеро",
     subtitle: "Место силы",
     dates: "19–22 июня",
@@ -34,6 +35,7 @@ const TOURS = [
   },
   {
     id: 2,
+    slug: "/tour/patmos",
     name: "Остров Патмос",
     subtitle: "Тишина и благодать",
     dates: "12–14 июня",
@@ -56,6 +58,7 @@ const TOURS = [
   },
   {
     id: 3,
+    slug: "/tour/aya",
     name: "Озеро Ая",
     subtitle: "Тусовка и приключения",
     dates: "26–28 июня",
@@ -78,6 +81,7 @@ const TOURS = [
   },
   {
     id: 4,
+    slug: "/tour/denisova",
     name: "Денисова пещера",
     subtitle: "Семейный отдых",
     dates: "23–26 июля",
@@ -100,6 +104,7 @@ const TOURS = [
   },
   {
     id: 5,
+    slug: null,
     name: "Патмос + Ая",
     subtitle: "Комбо-тур",
     dates: "15–19 июля",
@@ -122,6 +127,7 @@ const TOURS = [
   },
   {
     id: 6,
+    slug: "/tour/chemal",
     name: "ВИП тур на Чемал",
     subtitle: "Роскошь на природе",
     dates: "По договорённости",
@@ -271,13 +277,23 @@ function TourCard({ tour, index }: { tour: typeof TOURS[0]; index: number }) {
 
           {/* Actions */}
           <div className="flex gap-2 mt-auto">
-            <button
-              onClick={() => setOpen(!open)}
-              className="flex-1 border border-forest-200 text-forest-600 hover:bg-forest-50 transition-colors py-2.5 rounded-xl text-sm flex items-center justify-center gap-1"
-            >
-              {open ? "Свернуть" : "Подробнее"}
-              <Icon name={open ? "ChevronUp" : "ChevronDown"} size={13} />
-            </button>
+            {tour.slug ? (
+              <a
+                href={tour.slug}
+                className="flex-1 border border-forest-200 text-forest-600 hover:bg-forest-50 transition-colors py-2.5 rounded-xl text-sm flex items-center justify-center gap-1"
+              >
+                Подробнее
+                <Icon name="ArrowRight" size={13} />
+              </a>
+            ) : (
+              <button
+                onClick={() => setOpen(!open)}
+                className="flex-1 border border-forest-200 text-forest-600 hover:bg-forest-50 transition-colors py-2.5 rounded-xl text-sm flex items-center justify-center gap-1"
+              >
+                {open ? "Свернуть" : "Подробнее"}
+                <Icon name={open ? "ChevronUp" : "ChevronDown"} size={13} />
+              </button>
+            )}
             <a
               href="#contact"
               className="flex-1 bg-forest-600 hover:bg-forest-500 text-white py-2.5 rounded-xl text-sm text-center transition-colors"
